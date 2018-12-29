@@ -43,6 +43,8 @@ class APIManager {
         }
     }
 
+//    class func fetchArticles(pagination: Pagination)
+
 //    class func fetchPodProducts() -> Promise<[Product]> {
 //        return APIManager.shared.get(url: "https://s3.us-east-2.amazonaws.com/juul-coding-challenge/products.json").then { response -> [Product] in
 //            guard let pods = response["pods"].array else {

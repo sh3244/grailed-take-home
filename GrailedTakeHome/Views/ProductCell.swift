@@ -11,7 +11,7 @@ import Stevia
 //thumbnail, name, and price, and a Favorite button
 
 class ProductCell: UITableViewCell {
-    var product: Product?
+//    var product: Product?
 
     lazy var thumbnailView: UIImageView = {
         let view = UIImageView()
@@ -67,33 +67,33 @@ class ProductCell: UITableViewCell {
     }
 
     @objc func favoriteTapped() {
-        guard let product = self.product else { return }
-        if product.isFavorite {
-            ProductDefaults.removeFavoriteID(product.id)
-            favoriteButton.setImage(image: UIImage(named: "heart"), normalColor: .black, selectedColor: .gray, highlightedColor: .gray)
-        } else {
-            ProductDefaults.addFavoriteID(product.id)
-            favoriteButton.setImage(image: UIImage(named: "heart"), normalColor: .red, selectedColor: .gray, highlightedColor: .gray)
-        }
+//        guard let product = self.product else { return }
+//        if product.isFavorite {
+//            ProductDefaults.removeFavoriteID(product.id)
+//            favoriteButton.setImage(image: UIImage(named: "heart"), normalColor: .black, selectedColor: .gray, highlightedColor: .gray)
+//        } else {
+//            ProductDefaults.addFavoriteID(product.id)
+//            favoriteButton.setImage(image: UIImage(named: "heart"), normalColor: .red, selectedColor: .gray, highlightedColor: .gray)
+//        }
     }
 
-    func set(product: Product) {
-        self.product = product
-
-        nameLabel.text = product.name
-
-        priceLabel.text = StringManager.centsValueToString(product.price)
-
-        if !product.isFavorite {
-            favoriteButton.setImage(image: UIImage(named: "heart"), normalColor: .black, selectedColor: .gray, highlightedColor: .gray)
-        } else {
-            favoriteButton.setImage(image: UIImage(named: "heart"), normalColor: .red, selectedColor: .gray, highlightedColor: .gray)
-        }
-
-        APIManager.fetchImageWith(url: product.thumbnailURL).then { image -> Void in
-            self.thumbnailView.image = image
-        }
-    }
+//    func set(product: Product) {
+//        self.product = product
+//
+//        nameLabel.text = product.name
+//
+//        priceLabel.text = StringManager.centsValueToString(product.price)
+//
+//        if !product.isFavorite {
+//            favoriteButton.setImage(image: UIImage(named: "heart"), normalColor: .black, selectedColor: .gray, highlightedColor: .gray)
+//        } else {
+//            favoriteButton.setImage(image: UIImage(named: "heart"), normalColor: .red, selectedColor: .gray, highlightedColor: .gray)
+//        }
+//
+//        APIManager.fetchImageWith(url: product.thumbnailURL).then { image -> Void in
+//            self.thumbnailView.image = image
+//        }
+//    }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

@@ -12,7 +12,7 @@ import Alamofire
 //hi-res JUUL image, description, price, and the name of the product
 
 class DetailViewController: ViewController {
-    var product: Product?
+//    var product: Product?
 
     lazy var imageView: UIImageView = {
         let view = UIImageView()
@@ -68,24 +68,24 @@ class DetailViewController: ViewController {
         priceLabel.fillHorizontally(m: 10)
     }
 
-    init(product: Product) {
-        super.init(nibName: nil, bundle: nil)
-        set(product: product)
-    }
-
-    func set(product: Product) {
-        self.product = product
-
-        nameLabel.text = product.name
-
-        descriptionLabel.text = product.productDescription
-
-        priceLabel.text = StringManager.centsValueToString(product.price)
-
-        APIManager.fetchImageWith(url: product.imageURL).then { image -> Void in
-            self.imageView.image = image
-        }
-    }
+//    init(product: Product) {
+//        super.init(nibName: nil, bundle: nil)
+//        set(product: product)
+//    }
+//
+//    func set(product: Product) {
+//        self.product = product
+//
+//        nameLabel.text = product.name
+//
+//        descriptionLabel.text = product.productDescription
+//
+//        priceLabel.text = StringManager.centsValueToString(product.price)
+//
+//        APIManager.fetchImageWith(url: product.imageURL).then { image -> Void in
+//            self.imageView.image = image
+//        }
+//    }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

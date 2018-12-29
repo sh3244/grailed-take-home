@@ -15,10 +15,10 @@ import Dwifft
 }
 
 class ProductsViewController: ViewController {
-    var diffCalculator: TableViewDiffCalculator<String, Product>?
+    var diffCalculator: TableViewDiffCalculator<String, String>?
 
     var filterState: FilterState = .none
-    var products: [Product] = []
+//    var products: [Product] = []
 
     let favoriteImage = UIImage(named: "heart")?.imageWith(size: CGSize(width: 28, height: 28)).imageWith(color: .red)
     let nonfavoriteImage = UIImage(named: "heart")?.imageWith(size: CGSize(width: 28, height: 28)).imageWith(color: .black)
@@ -64,11 +64,11 @@ class ProductsViewController: ViewController {
     }
 
     func load() {
-        APIManager.fetchPodProducts().then { pods -> Void in
-            let filteredPods = pods.filter { return (self.filterState == .none) ? true : $0.isFavorite }
-            self.products = filteredPods as [Product]
-            self.diffCalculator?.sectionedValues = SectionedValues([("", self.products)])
-        }
+//        APIManager.fetchPodProducts().then { pods -> Void in
+//            let filteredPods = pods.filter { return (self.filterState == .none) ? true : $0.isFavorite }
+//            self.products = filteredPods as [Product]
+//            self.diffCalculator?.sectionedValues = SectionedValues([("", self.products)])
+//        }
     }
 
     @objc func rightBarButtonTapped() {
@@ -105,13 +105,14 @@ extension ProductsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let productCell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseIdentifier) as? ProductCell {
-            guard let diffCalculator = self.diffCalculator else { return productCell }
-            let product = diffCalculator.value(atIndexPath: indexPath)
-            productCell.set(product: product)
-            return productCell
-        }
-        return ProductCell()
+        return UITableViewCell(style: .default, reuseIdentifier: "")
+//        if let productCell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseIdentifier) as? ProductCell {
+//            guard let diffCalculator = self.diffCalculator else { return productCell }
+//            let product = diffCalculator.value(atIndexPath: indexPath)
+//            productCell.set(product: product)
+//            return productCell
+//        }
+//        return ProductCell()
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -119,8 +120,8 @@ extension ProductsViewController: UITableViewDelegate, UITableViewDataSource {
             return
         }
 
-        let detailVC = DetailViewController(product: product)
-        navigationController?.pushViewController(detailVC, animated: true)
+//        let detailVC = DetailViewController()
+//        navigationController?.pushViewController(detailVC, animated: true)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

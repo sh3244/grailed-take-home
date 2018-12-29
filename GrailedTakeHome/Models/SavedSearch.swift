@@ -55,8 +55,6 @@ class SavedSearch: CustomStringConvertible {
     var description: String {
         var description = ""
         description += "[id: \(self.id),\n"
-        description += "title: \(self.title),\n"
-        description += "url: \(self.url),\n"
         description += "author: \(self.author)]"
         return description
     }
