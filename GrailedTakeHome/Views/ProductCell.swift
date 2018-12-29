@@ -8,8 +8,6 @@
 
 import Stevia
 
-//thumbnail, name, and price, and a Favorite button
-
 class ProductCell: UITableViewCell {
 //    var product: Product?
 

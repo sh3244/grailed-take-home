@@ -23,7 +23,7 @@ class APIManager {
 
     public var manager: SessionManager
 
-    let baseURL = "https://www.grailed.com/api/"
+    let baseURL = "https://www.grailed.com"
 
     public init() {
         let timeout: Double = 10
@@ -43,7 +43,18 @@ class APIManager {
         }
     }
 
-//    class func fetchArticles(pagination: Pagination)
+    class func fetchArticles(pagination: Pagination?) -> Promise<([Article], Pagination?)> {
+        var path = "/api/articles/ios_index"
+        if let nextPage = pagination?.nextPage {
+            path = nextPage
+        }
+        return APIManager.shared.get(path).then { response -> ([Article], Pagination?) in
+            guard let articles = response["data"].array else {
+                throw APIError.emptyResponse
+            }
+            return (articles.compactMap { return Article(json: $0) }, Pagination(json: response["metadata"]["pagination"]))
+        }
+    }
 
 //    class func fetchPodProducts() -> Promise<[Product]> {
 //        return APIManager.shared.get(url: "https://s3.us-east-2.amazonaws.com/juul-coding-challenge/products.json").then { response -> [Product] in
@@ -56,10 +67,10 @@ class APIManager {
 //        }
 //    }
 
-    public func get(url: String, parameters: [String: Any]? = nil) -> Promise<JSON> {
+    public func get(_ path: String, parameters: [String: Any]? = nil) -> Promise<JSON> {
         //        let encoding: ParameterEncoding = method == .get ? URLEncoding.default : JSONEncoding.default
         let encoding: ParameterEncoding = JSONEncoding.default
-        let url = URL(string: url)
+        let url = URL(string: baseURL + path)
         guard let path = url else { return Promise(error: APIError.general) }
         return Promise { fulfill, reject in
             self.manager.request(path, method: .get, parameters: parameters, encoding: encoding)
