@@ -67,7 +67,13 @@ class Article: CustomStringConvertible {
     }
 }
 
-extension Article: Equatable {
+extension Article: Equatable, Comparable {
+    static func < (lhs: Article, rhs: Article) -> Bool {
+        let lhsTime = TimeHelper.timeIntervalFor(timeString: lhs.publishedAt)
+        let rhsTime = TimeHelper.timeIntervalFor(timeString: rhs.publishedAt)
+        return lhsTime > rhsTime
+    }
+
     static func == (lhs: Article, rhs: Article) -> Bool {
         return lhs.id == rhs.id
     }

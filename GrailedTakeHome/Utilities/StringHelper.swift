@@ -1,5 +1,5 @@
 //
-//  StringManager.swift
+//  StringHelper.swift
 //  GrailedTakeHome
 //
 //  Created by Sam on 12/18/18.
@@ -9,7 +9,7 @@
 
 import Foundation
 
-class StringManager {
+class StringHelper {
 
     class func centsValueToString(_ cents: Int) -> String {
         let priceString = String(cents)

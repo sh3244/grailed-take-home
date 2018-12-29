@@ -23,6 +23,7 @@ class SavedSearch: CustomStringConvertible {
     var publishedAt: String = ""
     var published: Bool = false
     var article: Article?
+    var search: Search?
 
     var listings: [String] = []
     var tagList: [String] = []
@@ -39,7 +40,9 @@ class SavedSearch: CustomStringConvertible {
         self.imageURL = json["image_url"].stringValue
         self.publishedAt = json["published_at"].stringValue
         self.published = json["published"].boolValue
-//        self.article =
+        self.article = Article(json: json["article"])
+
+        self.search = Search(json: json["search"])
 
 //        if let listings = json["listings"].arrayObject as? [String] {
 //            self.listings = listings
