@@ -1,0 +1,59 @@
+PODS:
+  - Alamofire (4.8.0)
+  - AlamofireImage (3.5.0):
+    - Alamofire (~> 4.8)
+  - Dwifft (0.8)
+  - FLEX (2.0.0)
+  - Nimble (7.0.3)
+  - PromiseKit (4.5.2):
+    - PromiseKit/Foundation (= 4.5.2)
+    - PromiseKit/QuartzCore (= 4.5.2)
+    - PromiseKit/UIKit (= 4.5.2)
+  - PromiseKit/CorePromise (4.5.2)
+  - PromiseKit/Foundation (4.5.2):
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (4.5.2):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (4.5.2):
+    - PromiseKit/CorePromise
+  - Quick (1.2.0)
+  - SteviaLayout (4.3.0)
+  - SwiftyJSON (4.0.0)
+
+DEPENDENCIES:
+  - Alamofire (= 4.8.0)
+  - AlamofireImage (= 3.5.0)
+  - Dwifft (= 0.8)
+  - FLEX (= 2.0)
+  - Nimble (= 7.0.3)
+  - PromiseKit (= 4.5.2)
+  - Quick (= 1.2.0)
+  - SteviaLayout (= 4.3.0)
+  - SwiftyJSON (= 4.0.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireImage
+    - Dwifft
+    - FLEX
+    - Nimble
+    - PromiseKit
+    - Quick
+    - SteviaLayout
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  AlamofireImage: 1aea346f4dda2f6c67622fa5a89fcbb80d79cc16
+  Dwifft: 463e61d07322fdf83b32ee6975ca1b20708db746
+  FLEX: 9b3d0800d0c06887a00ad8d2b514fb69256ebd1b
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  PromiseKit: 743e497a5f505a470d3bbbf4ce0663c1268af0a4
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  SteviaLayout: 4237718d4e9eaea2d530bd1426637735a7e19de6
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+
+PODFILE CHECKSUM: 5f8e7a0381900a0606a326f93e8944a8f0e36b81
+
+COCOAPODS: 1.5.3

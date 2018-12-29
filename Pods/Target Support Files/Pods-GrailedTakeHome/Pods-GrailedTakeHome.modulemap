@@ -1,0 +1,6 @@
+framework module Pods_GrailedTakeHome {
+  umbrella header "Pods-GrailedTakeHome-umbrella.h"
+
+  export *
+  module * { export * }
+}

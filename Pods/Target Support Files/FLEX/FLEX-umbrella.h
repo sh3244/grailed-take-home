@@ -1,0 +1,80 @@
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
+#endif
+#endif
+#endif
+
+#import "FLEXArgumentInputColorView.h"
+#import "FLEXArgumentInputDateView.h"
+#import "FLEXArgumentInputFontsPickerView.h"
+#import "FLEXArgumentInputFontView.h"
+#import "FLEXArgumentInputJSONObjectView.h"
+#import "FLEXArgumentInputNotSupportedView.h"
+#import "FLEXArgumentInputNumberView.h"
+#import "FLEXArgumentInputStringView.h"
+#import "FLEXArgumentInputStructView.h"
+#import "FLEXArgumentInputSwitchView.h"
+#import "FLEXArgumentInputTextView.h"
+#import "FLEXArgumentInputView.h"
+#import "FLEXArgumentInputViewFactory.h"
+#import "FLEXDefaultEditorViewController.h"
+#import "FLEXFieldEditorView.h"
+#import "FLEXFieldEditorViewController.h"
+#import "FLEXIvarEditorViewController.h"
+#import "FLEXMethodCallingViewController.h"
+#import "FLEXPropertyEditorViewController.h"
+#import "FLEXExplorerToolbar.h"
+#import "FLEXExplorerViewController.h"
+#import "FLEXManager+Private.h"
+#import "FLEXManager.h"
+#import "FLEXToolbarItem.h"
+#import "FLEXWindow.h"
+#import "FLEXClassesTableViewController.h"
+#import "FLEXFileBrowserFileOperationController.h"
+#import "FLEXFileBrowserSearchOperation.h"
+#import "FLEXFileBrowserTableViewController.h"
+#import "FLEXGlobalsTableViewController.h"
+#import "FLEXInstancesTableViewController.h"
+#import "FLEXLibrariesTableViewController.h"
+#import "FLEXLiveObjectsTableViewController.h"
+#import "FLEXWebViewController.h"
+#import "FLEXSystemLogMessage.h"
+#import "FLEXSystemLogTableViewCell.h"
+#import "FLEXSystemLogTableViewController.h"
+#import "FLEXNetworkHistoryTableViewController.h"
+#import "FLEXNetworkRecorder.h"
+#import "FLEXNetworkSettingsTableViewController.h"
+#import "FLEXNetworkTransaction.h"
+#import "FLEXNetworkTransactionDetailTableViewController.h"
+#import "FLEXNetworkTransactionTableViewCell.h"
+#import "FLEXNetworkObserver.h"
+#import "FLEXArrayExplorerViewController.h"
+#import "FLEXClassExplorerViewController.h"
+#import "FLEXDefaultsExplorerViewController.h"
+#import "FLEXDictionaryExplorerViewController.h"
+#import "FLEXGlobalsTableViewControllerEntry.h"
+#import "FLEXImageExplorerViewController.h"
+#import "FLEXLayerExplorerViewController.h"
+#import "FLEXObjectExplorerFactory.h"
+#import "FLEXObjectExplorerViewController.h"
+#import "FLEXSetExplorerViewController.h"
+#import "FLEXViewControllerExplorerViewController.h"
+#import "FLEXViewExplorerViewController.h"
+#import "FLEXHeapEnumerator.h"
+#import "FLEXMultilineTableViewCell.h"
+#import "FLEXResources.h"
+#import "FLEXRuntimeUtility.h"
+#import "FLEXUtility.h"
+#import "FLEXHierarchyTableViewCell.h"
+#import "FLEXHierarchyTableViewController.h"
+#import "FLEXImagePreviewViewController.h"
+
+FOUNDATION_EXPORT double FLEXVersionNumber;
+FOUNDATION_EXPORT const unsigned char FLEXVersionString[];
+

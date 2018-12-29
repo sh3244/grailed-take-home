@@ -1,0 +1,6 @@
+framework module Pods_GrailedTakeHomeTests {
+  umbrella header "Pods-GrailedTakeHomeTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
