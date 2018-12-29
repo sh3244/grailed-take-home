@@ -33,7 +33,12 @@ class APIManager {
         manager = Alamofire.SessionManager(configuration: configuration)
     }
 
-    class func fetchImageWith(url: String) -> Promise<UIImage> {
+    class func fetchImageWith(url: String, width: Int?) -> Promise<UIImage> {
+        var url = url
+        // Grailed specific CDN resize override
+        if let width = width {
+            url = "https://cdn.fs.grailed.com/AJdAgnqCST4iPtnUxiGtTz/rotate=deg:exif/rotate=deg:0/resize=width:\(String(width)),fit:crop/output=format:jpg,compress:true,quality:95/" + url
+        }
         return Promise { fulfill, reject in
             Alamofire.request(url).responseImage { response in
                 if let image = response.result.value {
@@ -56,16 +61,14 @@ class APIManager {
         }
     }
 
-//    class func fetchPodProducts() -> Promise<[Product]> {
-//        return APIManager.shared.get(url: "https://s3.us-east-2.amazonaws.com/juul-coding-challenge/products.json").then { response -> [Product] in
-//            guard let pods = response["pods"].array else {
-//                throw APIError.emptyResponse
-//            }
-//            return pods.compactMap({ json -> Product? in
-//                return Product(json: json)
-//            })
-//        }
-//    }
+    class func fetchSavedSearches() -> Promise<[SavedSearch]> {
+        return APIManager.shared.get("/api/merchandise/marquee").then { response -> [SavedSearch] in
+            guard let searches = response["data"].array else {
+                throw APIError.emptyResponse
+            }
+            return searches.compactMap { SavedSearch(json: $0) }
+        }
+    }
 
     public func get(_ path: String, parameters: [String: Any]? = nil) -> Promise<JSON> {
         //        let encoding: ParameterEncoding = method == .get ? URLEncoding.default : JSONEncoding.default

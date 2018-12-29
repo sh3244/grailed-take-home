@@ -12,94 +12,94 @@ class ArticleCell: UITableViewCell {
 
     var article: Article?
 
-    lazy var thumbnailView: UIImageView = {
+    lazy var heroView: UIImageView = {
         let view = UIImageView()
-        view.contentMode = .scaleAspectFit
+        view.contentMode = .scaleAspectFill
+        view.backgroundColor = .gray
         return view
     }()
 
     lazy var nameLabel: Label = {
-        let label = Label(text: "", fontStyle: .normal, fontSize: 14, color: .black)
-        label.textAlignment = .left
+        let label = Label(text: "", fontStyle: .normal, fontSize: 16, color: .white)
+        label.textAlignment = .center
         label.numberOfLines = 0
+        label.layer.rasterizationScale = UIScreen.main.scale
+        label.layer.shouldRasterize = true
         return label
     }()
 
-    lazy var priceLabel: Label = {
-        let label = Label(text: "", fontStyle: .normal, fontSize: 14, color: .black)
-        label.textAlignment = .left
+    lazy var dateLabel: Label = {
+        let label = Label(text: "", fontStyle: .bold, fontSize: 16, color: .white)
+        label.textAlignment = .center
         label.numberOfLines = 0
+        label.layer.rasterizationScale = UIScreen.main.scale
+        label.layer.shouldRasterize = true
         return label
     }()
 
-//    lazy var favoriteButton: Button = {
-//        let button = Button(image: UIImage(named: "heart"),
-//                            normalColor: .black,
-//                            selectedColor: .gray,
-//                            highlightedColor: .gray)
-//        button.addTarget(self, action: #selector(favoriteTapped), for: .touchUpInside)
-//        button.contentMode = .scaleAspectFit
-//        return button
-//    }()
+    lazy var shadowLayer: CAGradientLayer = {
+        let layer = CAGradientLayer()
+        layer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        layer.zPosition = -1
+
+        layer.rasterizationScale = UIScreen.main.scale
+        layer.shouldRasterize = true
+        return layer
+    }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
 
+        clipsToBounds = true
+
         sv([
-//            thumbnailView,
+            heroView,
             nameLabel,
-//            priceLabel,
-//            favoriteButton
+            dateLabel
             ])
 
-//        thumbnailView.size(50).left(10).top(10).bottom(10)
-//
-//        nameLabel.Left == thumbnailView.Right + 10
-//        nameLabel.top(10).right(50)
-//
-//        priceLabel.Left == thumbnailView.Right + 10
-//        priceLabel.Top == nameLabel.Bottom + 10
-//        priceLabel.right(50)
-//
-//        favoriteButton.right(10).size(30).centerVertically()
-        nameLabel.fillContainer()
-        nameLabel.height(55)
+        heroView.fillContainer()
+        heroView.height(270)
+
+        dateLabel.centerHorizontally()
+        dateLabel.bottom(30)
+
+        nameLabel.centerHorizontally()
+        nameLabel.width(75%)
+        nameLabel.Bottom == dateLabel.Top
     }
 
-    @objc func favoriteTapped() {
-        //        guard let product = self.product else { return }
-        //        if product.isFavorite {
-        //            ProductDefaults.removeFavoriteID(product.id)
-        //            favoriteButton.setImage(image: UIImage(named: "heart"), normalColor: .black, selectedColor: .gray, highlightedColor: .gray)
-        //        } else {
-        //            ProductDefaults.addFavoriteID(product.id)
-        //            favoriteButton.setImage(image: UIImage(named: "heart"), normalColor: .red, selectedColor: .gray, highlightedColor: .gray)
-        //        }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        heroView.layer.addSublayer(shadowLayer)
+        let b = bounds
+        shadowLayer.frame = CGRect(x: 0, y: b.maxY/2, width: b.width, height: b.height/2)
     }
 
     func set(article: Article) {
         self.article = article
         self.nameLabel.text = article.title
+
+        self.dateLabel.text = TimeHelper.displayTimeFor(timeString: article.publishedAt)
+
+        let screenWidth = UIScreen.main.bounds.width
+        APIManager.fetchImageWith(url: article.hero, width: Int(screenWidth)).then { image -> Void in
+            guard article == self.article else { return }
+            DispatchQueue.main.async {
+                self.heroView.image = image
+            }
+        }
     }
 
-    //    func set(product: Product) {
-    //        self.product = product
-    //
-    //        nameLabel.text = product.name
-    //
-    //        priceLabel.text = StringManager.centsValueToString(product.price)
-    //
-    //        if !product.isFavorite {
-    //            favoriteButton.setImage(image: UIImage(named: "heart"), normalColor: .black, selectedColor: .gray, highlightedColor: .gray)
-    //        } else {
-    //            favoriteButton.setImage(image: UIImage(named: "heart"), normalColor: .red, selectedColor: .gray, highlightedColor: .gray)
-    //        }
-    //
-    //        APIManager.fetchImageWith(url: product.thumbnailURL).then { image -> Void in
-    //            self.thumbnailView.image = image
-    //        }
-    //    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        heroView.image = nil
+        nameLabel.text = ""
+        dateLabel.text = ""
+    }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

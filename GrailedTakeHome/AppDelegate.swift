@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow()
         window?.backgroundColor = .white
-        window?.rootViewController = NavigationController(rootViewController: ProductsViewController())
+        window?.rootViewController = NavigationController(rootViewController: ArticlesViewController())
         window?.makeKeyAndVisible()
 
         return true

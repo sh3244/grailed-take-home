@@ -1,24 +1,23 @@
 //
-//  ProductsViewController.swift
+//  SavedSearchesViewController.swift
 //  GrailedTakeHome
 //
-//  Created by Sam on 12/18/18.
+//  Created by Sam on 12/29/18.
 //  Copyright © 2018 Samuel Huang. All rights reserved.
 //
 
 import Stevia
-import PromiseKit
 import Dwifft
+import PromiseKit
 
-// We cannot place these protocol methods in an extension due to compiler limitations
-class ArticlesViewController: ReloadablePagedController<Article>, UITableViewDelegate, UITableViewDataSource {
+class SavedSearchesViewController: ReloadablePagedController<SavedSearch>, UITableViewDelegate, UITableViewDataSource {
 
-    var diffCalculator: TableViewDiffCalculator<String, Article>?
+    var diffCalculator: TableViewDiffCalculator<String, SavedSearch>?
 
     lazy var tableView: UITableView = {
         let tableView = UITableView()
 
-        tableView.register(ArticleCell.self, forCellReuseIdentifier: ArticleCell.reuseIdentifier)
+        tableView.register(SavedSearchCell.self, forCellReuseIdentifier: SavedSearchCell.reuseIdentifier)
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -47,40 +46,29 @@ class ArticlesViewController: ReloadablePagedController<Article>, UITableViewDel
 
         view.backgroundColor = .white
 
-        title = "Grailed Articles"
+        title = "Saved Searches"
 
         childRefreshControl = refreshControl
-
-//        let barButtonImage = nonfavoriteImage
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: barButtonImage, style: .plain, target: self, action: #selector(rightBarButtonTapped))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Searches", style: .plain, target: self, action: #selector(rightTapped))
 
         view.sv([
             tableView
             ])
 
         tableView.Top == view.safeAreaLayoutGuide.Top
-//        tableView.Bottom == view.safeAreaLayoutGuide.Bottom
+        //        tableView.Bottom == view.safeAreaLayoutGuide.Bottom
         tableView.bottom(0)
         tableView.fillHorizontally()
 
         load()
     }
 
-//    override func reload() {
-//        super.reload()
-//    }
-
-    @objc func rightTapped() {
-        let savedSearchesVC = SavedSearchesViewController()
-        navigationController?.pushViewController(savedSearchesVC, animated: true)
+    override func loadPromise(reload: Bool) -> Promise<([SavedSearch], Pagination?)> {
+        return APIManager.fetchSavedSearches().then { searches -> Promise<([SavedSearch], Pagination?)> in
+            return Promise(value: (searches, nil))
+        }
     }
 
-    override func loadPromise(reload: Bool) -> Promise<([Article], Pagination?)> {
-        return APIManager.fetchArticles(pagination: (reload ? nil : pagination))
-    }
-
-    override func doUpdate(_ items: [Article]) {
+    override func doUpdate(_ items: [SavedSearch]) {
         self.diffCalculator?.sectionedValues = SectionedValues([("", self.items)])
     }
 
@@ -100,22 +88,19 @@ class ArticlesViewController: ReloadablePagedController<Article>, UITableViewDel
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let articleCell = tableView.dequeueReusableCell(withIdentifier: ArticleCell.reuseIdentifier, for: indexPath) as? ArticleCell {
-            if let article = diffCalculator?.value(atIndexPath: indexPath) {
-                articleCell.set(article: article)
-                return articleCell
+        if let savedSearchCell = tableView.dequeueReusableCell(withIdentifier: SavedSearchCell.reuseIdentifier, for: indexPath) as? SavedSearchCell {
+            if let savedSearch = diffCalculator?.value(atIndexPath: indexPath) {
+                savedSearchCell.set(savedSearch: savedSearch)
+                return savedSearchCell
             }
         }
-        return ArticleCell()
+        return SavedSearchCell()
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let article = diffCalculator?.value(atIndexPath: indexPath) else {
+        guard let _ = diffCalculator?.value(atIndexPath: indexPath) else {
             return
         }
-
-        //        let detailVC = DetailViewController()
-        //        navigationController?.pushViewController(detailVC, animated: true)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
