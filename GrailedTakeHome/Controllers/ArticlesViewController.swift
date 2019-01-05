@@ -23,7 +23,9 @@ class ArticlesViewController: ReloadablePagedController<Article>, UITableViewDel
         tableView.delegate = self
         tableView.dataSource = self
 
-        tableView.estimatedRowHeight = 100
+        tableView.estimatedRowHeight = 270
+        tableView.estimatedSectionHeaderHeight = 0
+        tableView.estimatedSectionFooterHeight = 0
         tableView.separatorColor = .clear
         tableView.rowHeight = UITableView.automaticDimension
 
