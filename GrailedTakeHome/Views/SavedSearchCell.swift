@@ -50,7 +50,11 @@ class SavedSearchCell: UITableViewCell {
     func set(savedSearch: SavedSearch) {
         self.savedSearch = savedSearch
 
+        // Set search title to query/name
         self.nameLabel.text = savedSearch.search?.query
+        if self.nameLabel.text?.isEmpty ?? false {
+            self.nameLabel.text = savedSearch.name
+        }
 
         APIManager.fetchImageWith(url: savedSearch.imageURL, width: 80).then { image -> Void in
             guard savedSearch == self.savedSearch else { return }
