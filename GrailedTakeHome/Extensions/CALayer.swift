@@ -1,9 +1,9 @@
 //
 //  CALayer.swift
-//  RLY
+//  GrailedTakeHome
 //
-//  Created by Vladislav Zagorodnyuk on 11/2/17.
-//  Copyright © 2017 EntryPointVR. All rights reserved.
+//  Created by Sam on 1/5/18.
+//  Copyright © 2019 Sam Huang. All rights reserved.
 //
 
 import UIKit

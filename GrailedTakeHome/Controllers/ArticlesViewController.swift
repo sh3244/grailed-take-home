@@ -51,8 +51,6 @@ class ArticlesViewController: ReloadablePagedController<Article>, UITableViewDel
 
         childRefreshControl = refreshControl
 
-//        let barButtonImage = nonfavoriteImage
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: barButtonImage, style: .plain, target: self, action: #selector(rightBarButtonTapped))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Searches", style: .plain, target: self, action: #selector(rightTapped))
 
         view.sv([
@@ -60,16 +58,11 @@ class ArticlesViewController: ReloadablePagedController<Article>, UITableViewDel
             ])
 
         tableView.Top == view.safeAreaLayoutGuide.Top
-//        tableView.Bottom == view.safeAreaLayoutGuide.Bottom
-        tableView.bottom(0)
+        tableView.Bottom == view.safeAreaLayoutGuide.Bottom
         tableView.fillHorizontally()
 
         load()
     }
-
-//    override func reload() {
-//        super.reload()
-//    }
 
     @objc func rightTapped() {
         let savedSearchesVC = SavedSearchesViewController()
@@ -110,12 +103,9 @@ class ArticlesViewController: ReloadablePagedController<Article>, UITableViewDel
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let article = diffCalculator?.value(atIndexPath: indexPath) else {
+        guard let _ = diffCalculator?.value(atIndexPath: indexPath) else {
             return
         }
-
-        //        let detailVC = DetailViewController()
-        //        navigationController?.pushViewController(detailVC, animated: true)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

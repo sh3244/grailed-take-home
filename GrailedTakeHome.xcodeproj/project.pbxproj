@@ -12,7 +12,6 @@
 		22E0DE4021D8098B00094AD3 /* GrailedTakeHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0DE3F21D8098B00094AD3 /* GrailedTakeHomeTests.swift */; };
 		22E0DE6121D80A7B00094AD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22E0DE4D21D80A7B00094AD3 /* Assets.xcassets */; };
 		22E0DE6321D80A7B00094AD3 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0DE5021D80A7B00094AD3 /* APIManager.swift */; };
-		22E0DE6521D80A7B00094AD3 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0DE5221D80A7B00094AD3 /* StringHelper.swift */; };
 		22E0DE6621D80A7B00094AD3 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0DE5421D80A7B00094AD3 /* UITableViewCell.swift */; };
 		22E0DE6721D80A7B00094AD3 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0DE5521D80A7B00094AD3 /* UIImage.swift */; };
 		22E0DE6821D80A7B00094AD3 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0DE5721D80A7B00094AD3 /* Label.swift */; };
@@ -20,7 +19,6 @@
 		22E0DE6A21D80A7B00094AD3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0DE5921D80A7B00094AD3 /* Button.swift */; };
 		22E0DE6B21D80A7B00094AD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0DE5B21D80A7B00094AD3 /* ViewController.swift */; };
 		22E0DE6C21D80A7B00094AD3 /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0DE5C21D80A7B00094AD3 /* ArticlesViewController.swift */; };
-		22E0DE6D21D80A7B00094AD3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0DE5D21D80A7B00094AD3 /* DetailViewController.swift */; };
 		22E0DE6E21D80A7B00094AD3 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0DE5E21D80A7B00094AD3 /* NavigationController.swift */; };
 		22E0DE7021D8125D00094AD3 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0DE6F21D8125D00094AD3 /* Article.swift */; };
 		22E0DE7221D8154500094AD3 /* SavedSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0DE7121D8154500094AD3 /* SavedSearch.swift */; };
@@ -57,7 +55,6 @@
 		22E0DE4121D8098B00094AD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22E0DE4D21D80A7B00094AD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../JuulTest/JuulTest/Assets.xcassets; sourceTree = "<group>"; };
 		22E0DE5021D80A7B00094AD3 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		22E0DE5221D80A7B00094AD3 /* StringHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 		22E0DE5421D80A7B00094AD3 /* UITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		22E0DE5521D80A7B00094AD3 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		22E0DE5721D80A7B00094AD3 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
@@ -65,7 +62,6 @@
 		22E0DE5921D80A7B00094AD3 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		22E0DE5B21D80A7B00094AD3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		22E0DE5C21D80A7B00094AD3 /* ArticlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
-		22E0DE5D21D80A7B00094AD3 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		22E0DE5E21D80A7B00094AD3 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		22E0DE6F21D8125D00094AD3 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		22E0DE7121D8154500094AD3 /* SavedSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedSearch.swift; sourceTree = "<group>"; };
@@ -164,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				22E0DE5021D80A7B00094AD3 /* APIManager.swift */,
-				22E0DE5221D80A7B00094AD3 /* StringHelper.swift */,
 				22E0DE7921D8199500094AD3 /* Useful.swift */,
 				22E0DE7D21D8246B00094AD3 /* TimeHelper.swift */,
 			);
@@ -199,7 +194,6 @@
 				22E0DE7721D8190F00094AD3 /* ReloadablePagedController.swift */,
 				22E0DE5C21D80A7B00094AD3 /* ArticlesViewController.swift */,
 				22E0DE8121D82F8400094AD3 /* SavedSearchesViewController.swift */,
-				22E0DE5D21D80A7B00094AD3 /* DetailViewController.swift */,
 				22E0DE5E21D80A7B00094AD3 /* NavigationController.swift */,
 			);
 			path = Controllers;
@@ -420,7 +414,6 @@
 			files = (
 				22E0DE6621D80A7B00094AD3 /* UITableViewCell.swift in Sources */,
 				22E0DE6721D80A7B00094AD3 /* UIImage.swift in Sources */,
-				22E0DE6521D80A7B00094AD3 /* StringHelper.swift in Sources */,
 				22E0DE6321D80A7B00094AD3 /* APIManager.swift in Sources */,
 				22E0DE7421D815F200094AD3 /* Search.swift in Sources */,
 				22E0DE6B21D80A7B00094AD3 /* ViewController.swift in Sources */,
@@ -430,7 +423,6 @@
 				22E0DE7821D8190F00094AD3 /* ReloadablePagedController.swift in Sources */,
 				22E0DE7C21D81DA200094AD3 /* ArticleCell.swift in Sources */,
 				22E0DE8221D82F8400094AD3 /* SavedSearchesViewController.swift in Sources */,
-				22E0DE6D21D80A7B00094AD3 /* DetailViewController.swift in Sources */,
 				22E0DE6C21D80A7B00094AD3 /* ArticlesViewController.swift in Sources */,
 				22E0DE2B21D8098700094AD3 /* AppDelegate.swift in Sources */,
 				22E0DE6921D80A7B00094AD3 /* SavedSearchCell.swift in Sources */,
